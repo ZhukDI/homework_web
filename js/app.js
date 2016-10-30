@@ -4,15 +4,13 @@ var makeRequest;
 
 $(document).ready(function() {
 	$("#search").on("click", function(){
-    makeRequest = function(){
-    	console.log("Zdrovstvuite");
     	var platform = $("#platform").val();
     	var name = $("#name").val();
     	if((!platform)||(!name)){
     		throw new Error(alert("Fill the fields"));
     	}
     	var url = "https://libraries.io/api/" + platform + "/" + name + "/dependents?api_key=f0acdc5d900ec4f1655b9d71dda0937a";
-
+    	makeRequest = function(){
     	var getJSON = function(url) {
         return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
