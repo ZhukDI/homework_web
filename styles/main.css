@@ -1,0 +1,30 @@
+h1{
+	text-align:center;
+	font-size: 70px;
+}
+
+h4{
+	font-size: 40px;
+	text-align:center;
+}
+
+h5{
+	text-align:center;
+}
+
+input{
+	height:30px;
+	width: 30%;
+	border-radius: 3px;
+}
+
+.btn{
+	height: 50px;
+	width: 100px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.description{
+	width: 400px;
+}
