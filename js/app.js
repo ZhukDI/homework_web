@@ -1,9 +1,14 @@
 "use strict"
 
 var makeRequest;
+var timer;
 
 $(document).ready(function() {
 	$("#search").on("click", function(){
+		if(timer){
+			clearTimeout(timer);
+			timer = null;
+		}
     	var platform = $("#platform").val();
     	var name = $("#name").val();
     	if((!platform)||(!name)){
@@ -11,6 +16,8 @@ $(document).ready(function() {
     	}
     	var url = "https://libraries.io/api/" + platform + "/" + name + "/dependents?api_key=f0acdc5d900ec4f1655b9d71dda0937a";
     	makeRequest = function(){
+    	$(".result").remove();
+    	addNewDiv()
     	var getJSON = function(url) {
         return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
@@ -38,7 +45,18 @@ $(document).ready(function() {
         alert('Error: ' + status);
     });
     }
+
+    function addNewDiv(){
+    var newDiv = document.createElement("div");
+    	newDiv.className = "container-fluid res";
+        newDiv.innerHTML = "";
+
+    var beforeDiv = document.getElementById("prev");
+    document.body.insertBefore(newDiv, beforeDiv);
+}
+
+
     makeRequest();
-    setInterval(makeRequest, 30000);
+    timer = setInterval(makeRequest, 5000);
     });
 });
