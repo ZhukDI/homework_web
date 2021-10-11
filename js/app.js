@@ -18,7 +18,7 @@ $(document).ready(function() {
     	makeRequest = function(){
     	$(".result").remove();
     	addNewDiv()
-    	var getJSON = function(url) {
+    	var getNewJSON = function(url) {
         return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.open('get', url, true);
@@ -34,7 +34,7 @@ $(document).ready(function() {
         });
     };
 
-    getJSON(url).then(function(data) {
+    getNewJSON(url).then(function(data) {
     	var responseData = JSON.parse(data);
 		console.log(responseData);
 		var source = $("#result-template").html();
